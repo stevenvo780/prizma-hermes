@@ -4,28 +4,40 @@
 		{
 			"label": "graf-client dev",
 			"type": "shell",
-			"command": "cd /datos/repos/humanizar/Graf/graf-client && npx next dev --turbopack -p 3000",
+			"command": "npx next dev --turbopack -p 3000",
+			"options": {
+				"cwd": "${workspaceFolder}/hermes-client"
+			},
 			"isBackground": true,
 			"problemMatcher": []
 		},
 		{
 			"label": "graf-client-dev",
 			"type": "shell",
-			"command": "cd /datos/repos/humanizar/Graf/graf-client && npx next dev --turbopack -p 3000",
+			"command": "npx next dev --turbopack -p 3000",
+			"options": {
+				"cwd": "${workspaceFolder}/hermes-client"
+			},
 			"isBackground": true,
 			"problemMatcher": []
 		},
 		{
 			"label": "admin-dev",
 			"type": "shell",
-			"command": "cd /datos/repos/humanizar/Graf/graf-admin && npx next dev --turbopack -p 3001",
+			"command": "npx next dev --turbopack -p 3001",
+			"options": {
+				"cwd": "${workspaceFolder}/hermes-admin"
+			},
 			"isBackground": true,
 			"problemMatcher": []
 		},
 		{
 			"label": "admin-dev",
 			"type": "shell",
-			"command": "cd /datos/repos/humanizar/Graf/graf-admin && npx next dev --turbopack -p 3001",
+			"command": "npx next dev --turbopack -p 3001",
+			"options": {
+				"cwd": "${workspaceFolder}/hermes-admin"
+			},
 			"isBackground": true,
 			"problemMatcher": []
 		}
