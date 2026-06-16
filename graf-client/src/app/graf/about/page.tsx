@@ -1,12 +1,36 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
 import Image from 'next/image';
 import { CgPhone, CgMail, CgGlobe, CgFacebook, CgInstagram, CgChevronRight } from 'react-icons/cg';
 import { FaWhatsapp } from 'react-icons/fa';
 
 const AboutPage: React.FC = () => {
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+
+  const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const form = e.currentTarget;
+    const nombre = (form.elements.namedItem('nombre') as HTMLInputElement)?.value?.trim();
+    const email = (form.elements.namedItem('email') as HTMLInputElement)?.value?.trim();
+    const asunto = (form.elements.namedItem('asunto') as HTMLInputElement)?.value?.trim();
+    const mensaje = (form.elements.namedItem('mensaje') as HTMLTextAreaElement)?.value?.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const errors: Record<string, string> = {};
+
+    if (!nombre) errors.nombre = 'El nombre es obligatorio';
+    if (!email) errors.email = 'El email es obligatorio';
+    else if (!emailRegex.test(email)) errors.email = 'Ingresa un email válido';
+    if (!asunto) errors.asunto = 'El asunto es obligatorio';
+    if (!mensaje) errors.mensaje = 'El mensaje es obligatorio';
+
+    if (Object.keys(errors).length > 0) {
+      e.preventDefault();
+      setFormErrors(errors);
+      return;
+    }
+    setFormErrors({});
+  };
 
   return (
     <div className="about-page">
@@ -19,20 +43,20 @@ const AboutPage: React.FC = () => {
         <Container>
           <div className="d-flex justify-content-center mb-4">
             <Image
-              src="/images/cauce-symbol.svg"
-              alt="Cauce"
+              src="/images/prizma-symbol.svg"
+              alt="Prizma"
               width={180}
               height={180}
               style={{ objectFit: 'contain' }}
             />
           </div>
-          <h1 className="display-4 fw-bold">Cauce</h1>
+          <h1 className="display-4 fw-bold">Prizma</h1>
           <p className="lead mb-4">Tecnología al servicio de tu crecimiento</p>
           <p className="mb-5 w-75 mx-auto">Enfócate en hacer lo que te gusta, que los sistemas se encarguen del resto</p>
           <Button
             variant="light"
             size="lg"
-            href="https://wa.me/573246780067?text=Hola,%20estoy%20interesado%20en%20los%20servicios%20de%20Cauce"
+            href="https://wa.me/573246780067?text=Hola,%20estoy%20interesado%20en%20los%20servicios%20de%20Prizma"
             target="_blank"
             rel="noreferrer"
             className="px-4 py-2"
@@ -83,7 +107,7 @@ const AboutPage: React.FC = () => {
           <div className="text-center mt-4">
             <Button
               variant="primary"
-              href="https://www.humanizar.co/"
+              href="https://prisma-enterprice.cloud"
               target="_blank"
               style={{ padding: '10px 20px', fontSize: '1.1rem', color: 'white', backgroundColor: '#FF5A2B', borderColor: '#FF5A2B' }}
             >
@@ -97,9 +121,9 @@ const AboutPage: React.FC = () => {
         <Container>
           <Row className="align-items-center">
             <Col lg={6}>
-              <h2 className="mb-4">Sobre Cauce</h2>
+              <h2 className="mb-4">Sobre Prizma</h2>
               <p>
-                En Cauce estamos comprometidos con la transformación digital de las empresas,
+                En Prizma estamos comprometidos con la transformación digital de las empresas,
                 ofreciendo soluciones tecnológicas que simplifican procesos y maximizan resultados.
               </p>
               <p>
@@ -183,7 +207,7 @@ const AboutPage: React.FC = () => {
                   </div>
                   <div>
                     <h5 className="mb-0">Email</h5>
-                    <p className="mb-0">sales@humanizar.co</p>
+                    <p className="mb-0">stevenvallejo780@gmail.com</p>
                   </div>
                 </div>
 
@@ -203,7 +227,7 @@ const AboutPage: React.FC = () => {
                   </div>
                   <div>
                     <h5 className="mb-0">Sitio Web</h5>
-                    <p className="mb-0">www.humanizar.co</p>
+                    <p className="mb-0">stevenvallejo.dev</p>
                   </div>
                 </div>
 
@@ -211,9 +235,9 @@ const AboutPage: React.FC = () => {
                   <h5 className="mb-3">Síguenos en redes</h5>
                   <div className="d-flex">
                     {[
-                      { icon: <CgGlobe size={24} />, url: 'https://www.humanizar.co', label: 'Web' },
+                      { icon: <CgGlobe size={24} />, url: 'https://stevenvallejo.dev', label: 'Web' },
                       { icon: <CgFacebook size={24} />, url: 'https://www.facebook.com/profile.php?id=100093808513344', label: 'Facebook' },
-                      { icon: <CgInstagram size={24} />, url: 'https://www.instagram.com/humanizarsystems/', label: 'Instagram' },
+                      { icon: <CgInstagram size={24} />, url: 'https://www.instagram.com/stevenvallejo/', label: 'Instagram' },
                     ].map((social, index) => (
                       <a
                         key={index}
@@ -246,38 +270,43 @@ const AboutPage: React.FC = () => {
               <Card className="border-0 shadow">
                 <Card.Body className="p-4">
                   <h3 className="mb-4">Envíanos un mensaje</h3>
-                  <Form 
-
-                    action="https://formsubmit.co/stevenvallejo780@gmail.com" 
+                  <Form
+                    action="https://formsubmit.co/stevenvallejo780@gmail.com"
                     method="POST"
+                    onSubmit={handleContactSubmit}
+                    noValidate
                   >
                     <input type="hidden" name="_captcha" value="false" />
                     <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.href : ''} />
                     <input type="hidden" name="_subject" value="Nuevo mensaje desde el sitio web" />
-                    
+
                     <Row>
                       <Col md={6}>
                         <Form.Group className="mb-3">
                           <Form.Label>Nombre</Form.Label>
-                          <Form.Control name="nombre" type="text" placeholder="Tu nombre" required />
+                          <Form.Control name="nombre" type="text" placeholder="Tu nombre" isInvalid={!!formErrors.nombre} />
+                          <Form.Control.Feedback type="invalid">{formErrors.nombre}</Form.Control.Feedback>
                         </Form.Group>
                       </Col>
                       <Col md={6}>
                         <Form.Group className="mb-3">
                           <Form.Label>Email</Form.Label>
-                          <Form.Control name="email" type="email" placeholder="tu@email.com" required />
+                          <Form.Control name="email" type="email" placeholder="tu@email.com" isInvalid={!!formErrors.email} />
+                          <Form.Control.Feedback type="invalid">{formErrors.email}</Form.Control.Feedback>
                         </Form.Group>
                       </Col>
                     </Row>
 
                     <Form.Group className="mb-3">
                       <Form.Label>Asunto</Form.Label>
-                      <Form.Control name="asunto" type="text" placeholder="¿Cómo podemos ayudarte?" required />
+                      <Form.Control name="asunto" type="text" placeholder="¿Cómo podemos ayudarte?" isInvalid={!!formErrors.asunto} />
+                      <Form.Control.Feedback type="invalid">{formErrors.asunto}</Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group className="mb-4">
                       <Form.Label>Mensaje</Form.Label>
-                      <Form.Control name="mensaje" as="textarea" rows={5} placeholder="Escribe tu mensaje aquí..." required />
+                      <Form.Control name="mensaje" as="textarea" rows={5} placeholder="Escribe tu mensaje aquí..." isInvalid={!!formErrors.mensaje} />
+                      <Form.Control.Feedback type="invalid">{formErrors.mensaje}</Form.Control.Feedback>
                     </Form.Group>
 
                     <div className="d-grid">
@@ -309,12 +338,12 @@ const AboutPage: React.FC = () => {
         }}
       >
         <Container>
-          <p className="mb-0">&copy; {new Date().getFullYear()} Cauce. Todos los derechos reservados.</p>
+          <p className="mb-0">&copy; {new Date().getFullYear()} Steven Vallejo. Todos los derechos reservados.</p>
         </Container>
       </footer>
 
       <a
-        href="https://wa.me/573246780067?text=Necesito%20soporte%20de%20humanizar"
+        href="https://wa.me/573246780067?text=Necesito%20soporte%20de%20Prizma"
         target="_blank"
         rel="noreferrer"
         style={{

@@ -73,7 +73,7 @@ describe('AboutPage', () => {
     });
 
     expect(container.querySelector('.about-page')).toBeTruthy();
-    expect(container.textContent).toContain('Cauce');
+    expect(container.textContent).toContain('Prizma');
     expect(container.textContent).toContain('Tecnología al servicio de tu crecimiento');
   });
 
@@ -108,7 +108,7 @@ describe('AboutPage', () => {
 
     expect(container.textContent).toContain('Contáctanos');
     expect(container.textContent).toContain('+57 3246780067');
-    expect(container.textContent).toContain('sales@humanizar.co');
+    expect(container.textContent).toContain('stevenvallejo780@gmail.com');
   });
 
   it('renders the footer', async () => {
@@ -116,6 +116,6 @@ describe('AboutPage', () => {
       root.render(<AboutPage />);
     });
 
-    expect(container.textContent).toContain('Cauce. Todos los derechos reservados.');
+    expect(container.textContent).toContain('Steven Vallejo. Todos los derechos reservados.');
   });
 });
