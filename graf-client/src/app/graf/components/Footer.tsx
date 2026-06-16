@@ -18,7 +18,7 @@ const DefaultFooter: React.FC = () => {
   const defaultName = 'Cauce';
   const defaultLocation = 'Colombia';
   const defaultPhone = '57 3246780067';
-  const defaultEmail = 'sales@humanizar.co';
+  const defaultEmail = 'stevenvallejo780@gmail.com';
   const defaultSlogan = 'Cauce: el cauce de tu negocio. Tecnología al servicio de tu crecimiento';
   const defaultDescription = 'Enfócate hacer lo que te gusta, que los sistemas se encarguen del resto';
   const defaultSocialNetworks = [{ name: 'Website', url: 'https://www.humanizar.co/' }];

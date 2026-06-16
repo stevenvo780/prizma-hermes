@@ -50,7 +50,7 @@ describe('PrivacyPolicies', () => {
       expect(screen.getByText('Cauce', { selector: '.company-badge' })).toBeTruthy();
       expect(screen.getByText(/Calle 44 #50-135/)).toBeTruthy();
       // Use getAllByText because the email appears in the list and in the strong tag logic sometimes
-      const emails = screen.getAllByText(/suport@humanizar.co/);
+      const emails = screen.getAllByText(/stevenvallejo780@gmail\.com/);
       expect(emails.length).toBeGreaterThan(0);
       unmount();
     });

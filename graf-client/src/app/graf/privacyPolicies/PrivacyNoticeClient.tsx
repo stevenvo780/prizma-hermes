@@ -46,7 +46,7 @@ const PrivacyPolicyView: React.FC = () => {
             <span className="company-badge">Cauce</span>
             <p>
               <strong>Dirección:</strong> Calle 44 #50-135 <br />
-              <strong>Correo electrónico:</strong> suport@humanizar.co <br />
+              <strong>Correo electrónico:</strong> stevenvallejo780@gmail.com <br />
               <strong>Teléfono:</strong> 3046374368
             </p>
           </div>
@@ -147,7 +147,7 @@ const PrivacyPolicyView: React.FC = () => {
           <p className="section-text">
             Para realizar consultas, reclamos o ejercer cualquiera de sus derechos (acceso, actualización, rectificación,
             supresión o revocatoria de la autorización), puede enviar su solicitud al correo electrónico 
-            <strong> suport@humanizar.co</strong> o comunicarse al teléfono <strong>3046374368</strong>. 
+            <strong> stevenvallejo780@gmail.com</strong> o comunicarse al teléfono <strong>3046374368</strong>. 
             Deberá indicar su nombre completo, número de identificación, descripción clara de la petición y adjuntar 
             los documentos que desee hacer valer. 
           </p>

@@ -74,7 +74,7 @@ describe('Graf Footer', () => {
     expect(container.textContent).toContain('Cauce');
     expect(container.textContent).toContain('Contacto');
     expect(container.textContent).toContain('Redes Sociales');
-    expect(container.textContent).toContain('sales@humanizar.co');
+    expect(container.textContent).toContain('stevenvallejo780@gmail.com');
   });
 
   it('renders mobile accordion toggles when screen is small', async () => {
