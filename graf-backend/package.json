@@ -1,7 +1,7 @@
 {
-  "name": "total-pedidos-api",
+  "name": "hermes-api",
   "version": "0.0.1",
-  "description": "Proyecto de backend para el e-commerce Total Pedidos",
+  "description": "Proyecto de backend para el e-commerce Hermes",
   "author": {
     "name": "Steven Vallejo Ortiz",
     "email": "stevenvallejo780@gmail.com"
@@ -49,7 +49,6 @@
     "start:prod:migrate": "npm run -s migration:run:prod && npm run start:prod"
   },
   "dependencies": {
-    "@cauce/contracts": "file:../../../packages/contracts",
     "@nestjs/axios": "^4.0.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.0.0",
@@ -70,10 +69,13 @@
     "crypto": "^1.0.1",
     "dotenv": "^16.4.7",
     "firebase-admin": "^12.3.1",
+    "prizma-contracts": "^1.3.0",
+    "prizma-payments": "^1.0.1",
     "pg": "^8.11.1",
     "rimraf": "^5.0.10",
     "sanitize-html": "^2.17.0",
     "swagger-ui-express": "^5.0.0",
+    "tsconfig-paths": "^4.2.0",
     "typeorm": "^0.3.17",
     "xlsx": "^0.18.5"
   },
@@ -104,6 +106,8 @@
     "tsconfig-paths": "^4.2.0",
     "tsconfig-paths-webpack-plugin": "^4.2.0",
     "typedoc": "^0.28.15",
-    "typescript": "^5.1.3"
+    "typescript": "^5.1.3",
+    "webpack": "^5.107.2",
+    "webpack-node-externals": "^3.0.0"
   }
 }

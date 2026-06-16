@@ -1,0 +1,62 @@
+# .gcloudignore — controls what `gcloud run deploy --source` uploads to Cloud Build.
+# Mirrors .dockerignore. Critically excludes node_modules dirs that contain
+# dangling pnpm symlinks (e.g. vendor-contracts/node_modules/typescript ->
+# ../../../node_modules/.pnpm/...) which crash gcloud's source uploader.
+# The container rebuilds deps via `npm ci`, so none of these are needed at upload time.
+
+# Dependencies — reinstalled inside the container
+node_modules/
+vendor-contracts/node_modules/
+
+# App build artifact — regenerated in the container by `tsc`.
+# NOTE: do NOT ignore vendor-contracts/dist — prizma-contracts ships prebuilt
+# (main -> ./dist/index.cjs) and is not rebuilt in the container.
+/dist/
+*.tsbuildinfo
+
+# Git
+.git/
+.gitignore
+vendor-contracts/.git/
+
+# Env files (secrets) — not baked into image
+.env
+.env.*
+!.env.example
+
+# Docker / CI
+# NOTE: do NOT ignore Dockerfile or .dockerignore — Cloud Build reads the
+# Dockerfile from the uploaded source root, and the docker step honors
+# .dockerignore for the build context.
+docker-compose*
+.github/
+cloudbuild.yaml
+
+# Logs / coverage / cache / tmp
+logs/
+*.log
+coverage/
+*.lcov
+.nyc_output/
+.cache/
+.eslintcache
+.npm/
+.tmp/
+tmp/
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Docs
+*.md
+!README.md
+docs/
+
+# Scripts / shell
+scripts/
+*.sh

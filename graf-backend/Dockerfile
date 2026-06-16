@@ -20,7 +20,8 @@ RUN npm ci --silent
 COPY src/ ./src/
 COPY webpack.config.js ./
 ENV NODE_ENV=production
-RUN npm run build:prod
+# Use tsc directly to avoid webpack version conflicts; path aliases resolved at runtime via tsconfig-paths
+RUN npx tsc -p tsconfig.build.json
 
 # Dejar sólo dependencias de producción
 RUN npm ci --only=production --silent && npm cache clean --force
@@ -41,6 +42,7 @@ ENV PORT=8080
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 COPY package*.json ./
+COPY bootstrap.js ./
 
 # Usar usuario estándar `node` (no root) disponible en la imagen
 USER node
@@ -51,4 +53,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
   CMD curl -fsS http://127.0.0.1:$PORT/health || exit 1
 
 ENTRYPOINT ["dumb-init", "--"]
-CMD ["node", "dist/main.js"]
+CMD ["node", "bootstrap.js"]
