@@ -24,8 +24,8 @@ const LoginClient: React.FC<LoginClientProps> = ({ storeId }) => {
   const [resetEmail, setResetEmail] = useState('');
 
   const config = useSelector((state: RootState) => state.ui.store?.configuration);
-  const defaultTitle = "Graf";
-  const defaultLogo = "/images/logo.svg";
+  const defaultTitle = "Hermes";
+  const defaultLogo = "/images/logo-hermes.png";
 
   const storeName = storeId ? (config?.store?.name || defaultTitle) : defaultTitle;
   const logoSrc = storeId ? (config?.logo || defaultLogo) : defaultLogo;

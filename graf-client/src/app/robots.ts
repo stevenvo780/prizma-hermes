@@ -5,8 +5,8 @@ import { Store } from '@/types';
 export const dynamic = 'force-dynamic';
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hermes.com.co';
-  
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hermes.prisma-enterprise.cloud';
+
   let stores: Store[] = [];
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
@@ -20,11 +20,12 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
 
   const staticAllowedRoutes = [
     '/',
-    '/hermes',
-    '/hermes/home',
-    '/hermes/privacyPolicies'
+    '/graf',
+    '/graf/home',
+    '/graf/privacyPolicies',
+    '/graf/about'
   ];
-  
+
   const publicSubPaths = ['', '/about', '/products'];
   const storeAllowedRoutes = stores.flatMap((store: Store) =>
     publicSubPaths.map(sp => `/${store.id}${sp}`)
@@ -35,10 +36,10 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     '/dashboard/*',
     '/login',
     '/register',
-    '/hermes/login',
-    '/hermes/register',
-    '/hermes/profile',
-    '/hermes/orders',
+    '/graf/login',
+    '/graf/register',
+    '/graf/profile',
+    '/graf/orders',
     ...stores.flatMap((store: Store) => [
       `/${store.id}/login`,
       `/${store.id}/register`,
@@ -58,12 +59,11 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       {
         userAgent: 'Googlebot',
         allow: ['/*.js', '/*.css', '/*.png', '/*.jpg', '/*.gif'],
-        disallow: '/search',
       },
       {
         userAgent: 'Bingbot',
         allow: ['/*.js', '/*.css'],
-        disallow: ['/search', '/api/*']
+        disallow: ['/api/*']
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

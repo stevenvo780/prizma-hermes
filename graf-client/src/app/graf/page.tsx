@@ -4,40 +4,41 @@ import ClientHome from './home/ClientHome';
 
 export const dynamic = 'force-dynamic';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hermes.prisma-enterprise.cloud';
+
 export const metadata: Metadata = {
-  title: 'Hermes',
+  title: 'Hermes | Crea tu tienda online con Prizma',
   description:
-    'Discover a wide range of products with Hermes, your go-to ecommerce platform for secure and fast shopping.',
-  keywords: ['ecommerce', 'online shopping', 'Hermes', 'products', 'orders'],
+    'Hermes es la plataforma e-commerce de Prizma: crea tu tienda online con alta personalización, rendimiento excepcional y a un costo accesible.',
+  keywords: ['ecommerce', 'tienda online', 'Hermes', 'Prizma', 'productos', 'pedidos'],
   openGraph: {
-    title: 'Hermes',
+    title: 'Hermes | Crea tu tienda online con Prizma',
     description:
-      'Discover a wide range of products with Hermes, your go-to ecommerce platform for secure and fast shopping.',
+      'Crea tu tienda online con Hermes de Prizma: alta personalización, alto rendimiento y soporte profesional.',
     type: 'website',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://hermes.com.co',
-    siteName: 'Hermes',
-    locale: 'en_US',
+    url: siteUrl,
+    siteName: 'Hermes by Prizma',
+    locale: 'es_ES',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Hermes - Your Online Store',
+        alt: 'Hermes by Prizma - Tu plataforma e-commerce',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hermes',
+    title: 'Hermes | Crea tu tienda online con Prizma',
     description:
-      'Discover a wide range of products with Hermes, your go-to ecommerce platform for secure and fast shopping.',
-    creator: '@Hermes',
-    images: ['/images/twitter-og.jpg'],
+      'Crea tu tienda online con Hermes de Prizma: alta personalización, alto rendimiento y soporte profesional.',
+    images: [{ url: '/images/twitter-og.jpg', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://hermes.com.co',
+    canonical: siteUrl,
     languages: {
-      'en-US': process.env.NEXT_PUBLIC_SITE_URL || 'https://hermes.com.co',
+      'es-CO': siteUrl,
     },
   },
   robots: {
@@ -50,10 +51,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
       'max-video-preview': -1,
     },
-  },
-  icons: {
-    icon: '/images/logo.svg',
-    apple: '/images/logo.svg',
   },
 };
 

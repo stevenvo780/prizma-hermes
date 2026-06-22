@@ -412,9 +412,9 @@ describe('LoginClient', () => {
   it('uses default title and logo when no storeId', async () => {
     await renderComponent();
 
-    expect(container.textContent).toContain('Graf');
+    expect(container.textContent).toContain('Hermes');
     const img = container.querySelector('img');
-    expect(img?.getAttribute('src')).toBe('/images/logo.svg');
+    expect(img?.getAttribute('src')).toBe('/images/logo-hermes.png');
   });
 });
 

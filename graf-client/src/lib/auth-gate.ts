@@ -10,8 +10,8 @@ export const PROTECTED_SUFFIXES = [
 
 const EXACT_PUBLIC_PATHS = new Set([
   '/',
-  '/hermes',
-  '/hermes/'
+  '/graf',
+  '/graf/'
 ]);
 
 function isStaticOrApiPath(pathname: string): boolean {
@@ -54,12 +54,12 @@ export function decodeJwtExp(token: string): number | null {
 }
 
 export function buildLoginRedirect(pathname: string): string {
-  if (pathname.startsWith('/hermes/')) {
-    return '/hermes/login';
+  if (pathname.startsWith('/graf/')) {
+    return '/graf/login';
   }
   const storeMatch = pathname.match(/^(\/[^/]+)\//);
   if (storeMatch) {
     return `${storeMatch[1]}/login`;
   }
-  return '/hermes/login';
+  return '/graf/login';
 }

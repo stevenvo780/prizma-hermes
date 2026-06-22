@@ -18,15 +18,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   } catch {
   }
 
+  // Only include public, indexable routes — never routes that robots.ts disallows
   const staticPaths = [
     '/',
-    '/hermes',
-    '/hermes/home',
-    '/hermes/login',
-    '/hermes/orders',
-    '/hermes/privacyPolicies',
-    '/hermes/profile',
-    '/hermes/register'
+    '/graf',
+    '/graf/home',
+    '/graf/privacyPolicies',
+    '/graf/about'
   ];
 
   const staticRoutes = staticPaths.map(path => ({
@@ -36,7 +34,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: getPriority(path)
   }));
 
-  const subPaths = ['', '/about', '/checkout', '/login', '/orders', '/profile', '/register'];
+  // Only public store sub-paths; private routes excluded to match robots.ts
+  const subPaths = ['', '/about'];
   const storeRoutes = stores.flatMap((store: Store) =>
     subPaths.map(sp => {
       const fullPath = `/${store.id}${sp}`;

@@ -51,7 +51,7 @@ const PLANS: PlanInfo[] = [
       { name: 'Hasta 20 órdenes/mes', included: true },
       { name: 'Productos ilimitados', included: true },
       { name: 'Panel de administración', included: true },
-      { name: 'Marca de agua Graf', included: false },
+      { name: 'Marca de agua Hermes', included: false },
       { name: 'Dominio personalizado', included: false },
       { name: 'Soporte prioritario', included: false },
     ]
@@ -71,7 +71,7 @@ const PLANS: PlanInfo[] = [
       { name: 'Productos ilimitados', included: true },
       { name: 'Panel de administración', included: true },
       { name: 'Soporte básico', included: true },
-      { name: 'Marca de agua Graf', included: false },
+      { name: 'Marca de agua Hermes', included: false },
       { name: 'Dominio personalizado', included: false },
     ]
   },

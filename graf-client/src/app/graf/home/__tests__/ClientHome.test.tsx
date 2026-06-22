@@ -46,8 +46,7 @@ describe('ClientHome', () => {
       root.render(<ClientHome />);
     });
 
-    expect(container.textContent).toContain('Graf: Tu Ecommerce Personalizado');
-    expect(container.textContent).toContain('¿Por qué elegir Graf para tu negocio?');
+    expect(container.textContent).toContain('Tu Ecommerce Profesional');
     expect(container.textContent).toContain('Alta personalización');
   });
 

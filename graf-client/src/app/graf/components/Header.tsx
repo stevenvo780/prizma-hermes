@@ -13,10 +13,10 @@ const Header: React.FC = () => {
   const dispatch = useAppDispatch();
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const defaultTitle = "Hermes";
-  const defaultLogo = "/images/logo.svg";
+  const defaultLogo = "/images/logo-hermes.png";
   const routesList = [
-    { name: 'Inicio', path: '/', icon: <FaHome /> },
-    { name: 'Nosotros', path: '/hermes/about', icon: <FaInfoCircle /> }
+    { name: 'Inicio', path: '/graf', icon: <FaHome /> },
+    { name: 'Nosotros', path: '/graf/about', icon: <FaInfoCircle /> }
   ];
   const handleLogout = useCallback(async () => {
     dispatch(logout());

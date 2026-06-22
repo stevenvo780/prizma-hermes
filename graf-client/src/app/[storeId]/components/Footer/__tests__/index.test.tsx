@@ -118,8 +118,8 @@ describe('Footer', () => {
     expect(container.textContent).toContain('Horarios');
   });
 
-  it('renders Graf logo for non-premium', async () => {
+  it('renders Hermes branding for non-premium', async () => {
     await act(async () => root.render(<Footer />));
-    expect(container.textContent).toContain('Graf');
+    expect(container.textContent).toContain('Hermes');
   });
 });

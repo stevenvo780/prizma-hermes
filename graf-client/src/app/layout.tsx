@@ -9,29 +9,50 @@ import React from 'react';
 
 // Disable prerendering for pages that depend on Firebase and env vars
 export const dynamic = 'force-dynamic';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hermes.prisma-enterprise.cloud';
+
 export const metadata = {
   title: {
-    default: 'Hermes',
+    default: 'Hermes | E-commerce Prizma',
   },
   description:
-    'Hermes es una aplicación e-commerce minimalista y altamente funcional para gestionar pedidos de forma rápida y sencilla.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hermes.com.co/'),
+    'Hermes es la plataforma e-commerce de Prizma: minimalista, altamente funcional y fácil de gestionar.',
+  metadataBase: new URL(siteUrl),
   openGraph: {
-    title: 'Hermes',
+    title: 'Hermes | E-commerce Prizma',
     description:
-      'Aplicación e-commerce minimalista y altamente funcional para gestionar tus pedidos online.',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hermes.com.co/',
-    siteName: 'Hermes',
+      'Plataforma e-commerce minimalista y altamente funcional para gestionar tus pedidos online.',
+    url: siteUrl,
+    siteName: 'Hermes by Prizma',
     locale: 'es_ES',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Hermes by Prizma',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hermes',
+    title: 'Hermes | E-commerce Prizma',
     description:
-      'App e-commerce minimalista y funcional para gestionar tus pedidos online.',
-    images: [{ url: '/images/logo.svg', alt: 'Logo de Hermes' }]
-  }
+      'Plataforma e-commerce minimalista y funcional para gestionar tus pedidos online.',
+    images: [{ url: '/images/twitter-og.jpg', width: 1200, height: 630, alt: 'Hermes by Prizma' }]
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/images/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/favicon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/images/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 export const viewport = {
@@ -42,21 +63,16 @@ export const viewport = {
 const defaultStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Hermes',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hermes.com.co/',
-  logo: '/images/logo.svg',
+  name: 'Hermes by Prizma',
+  url: siteUrl,
+  logo: `${siteUrl}/images/logo-hermes.png`,
   description:
-    'E-commerce minimalista y altamente funcional para gestionar pedidos de manera rápida y sencilla.',
+    'Plataforma e-commerce minimalista y altamente funcional para gestionar pedidos de manera rápida y sencilla.',
   sameAs: [
-    'https://www.facebook.com/hermes',
-    'https://instagram.com/hermes',
-    'https://twitter.com/hermes'
+    'https://www.facebook.com/prizma',
+    'https://instagram.com/prizma',
+    'https://twitter.com/prizma'
   ],
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hermes.com.co/'}/search?q={search_term_string}`,
-    'query-input': 'required name=search_term_string'
-  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

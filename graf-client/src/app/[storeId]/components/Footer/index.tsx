@@ -469,8 +469,8 @@ const Footer: React.FC = () => {
               <div className="powered-by-container">
                 <div className="d-flex justify-content-center align-items-center">
                   <Image
-                    src="/images/logo.svg"
-                    alt="Hermes"
+                    src="/images/logo-hermes.png"
+                    alt="Hermes by Prizma"
                     height={30}
                     width={30}
                     className="me-2"

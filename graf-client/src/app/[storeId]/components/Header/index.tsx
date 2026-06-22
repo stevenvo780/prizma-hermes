@@ -53,7 +53,7 @@ const Header: React.FC = () => {
 
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const storeName = config?.store?.name || 'Graf';
+  const storeName = config?.store?.name || 'Hermes';
   const logoSrc = config?.logo || '/images/logo.svg';
   const defaultNavbarHeight = 60;
   const minNavbarHeight = 48;
