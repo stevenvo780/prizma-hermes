@@ -15,9 +15,10 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prizma-hermes.verce
 export const metadata = {
   title: {
     default: 'Hermes | E-commerce Prizma',
+    template: '%s | Hermes · Prizma',
   },
   description:
-    'Hermes es la plataforma e-commerce de Prizma: minimalista, altamente funcional y fácil de gestionar.',
+    'Hermes es la plataforma e-commerce de Prizma: minimalista, altamente funcional y fácil de gestionar. Vendé, gestioná pedidos y hacé crecer tu negocio.',
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: siteUrl,
@@ -25,17 +26,17 @@ export const metadata = {
   openGraph: {
     title: 'Hermes | E-commerce Prizma',
     description:
-      'Plataforma e-commerce minimalista y altamente funcional para gestionar tus pedidos online.',
+      'Plataforma e-commerce minimalista y altamente funcional para gestionar tus pedidos online. Parte de la suite Prizma.',
     url: siteUrl,
     siteName: 'Hermes by Prizma',
     locale: 'es_ES',
     type: 'website',
     images: [
       {
-        url: `${siteUrl}/images/og-image.jpg`,
+        url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: 'Hermes by Prizma',
+        alt: 'Hermes by Prizma — E-commerce',
       },
     ],
   },
@@ -43,19 +44,22 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Hermes | E-commerce Prizma',
     description:
-      'Plataforma e-commerce minimalista y funcional para gestionar tus pedidos online.',
-    images: [{ url: `${siteUrl}/images/twitter-og.jpg`, width: 1200, height: 630, alt: 'Hermes by Prizma' }]
+      'Plataforma e-commerce minimalista y funcional para gestionar tus pedidos online. Parte de la suite Prizma.',
+    images: [{ url: `${siteUrl}/og-image.png`, width: 1200, height: 630, alt: 'Hermes by Prizma — E-commerce' }],
   },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/images/favicon-32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/images/favicon-512.png', sizes: '512x512', type: 'image/png' },
+      { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
-      { url: '/images/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
+    shortcut: [{ url: '/favicon.ico' }],
   },
+  manifest: '/manifest.json',
 };
 
 export const viewport = {
@@ -68,7 +72,7 @@ const defaultStructuredData = {
   '@type': 'Organization',
   name: 'Hermes by Prizma',
   url: siteUrl,
-  logo: `${siteUrl}/images/hermes-logo-512.png`,
+  logo: `${siteUrl}/icon-512.png`,
   description:
     'Plataforma e-commerce minimalista y altamente funcional para gestionar pedidos de manera rápida y sencilla.',
   sameAs: [
